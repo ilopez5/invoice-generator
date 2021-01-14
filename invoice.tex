@@ -1,0 +1,27 @@
+\documentclass{invoice} % use the custom invoice class (invoice.cls)
+
+\begin{document}
+
+% heading
+\hfil{\huge\bf Invoice \#\input{invoice_num.tex}}\hfil % Company providing the invoice
+\break
+\hrule
+
+\begin{parties}
+	{\payer{PAYEE}{COMPANY}{ADDRESS\\ \tab CITY, STATE ZIP}{PAYEE EMAIL}}
+	{\payee{PAYER}{ROLE/CONTRACTOR}{ADDRESS\\ \tab CITY, STATE ZIP}{PAYER EMAIL}}
+\end{parties}
+
+{\bf Date: \today} \\
+
+% table of expenses
+\begin{invoiceTable}
+% hourrow or feerow
+
+\feetype{FEE-TYPE} % Fee category description
+
+\input{entries.tex}
+
+\subtotal
+\end{invoiceTable}
+\end{document}
